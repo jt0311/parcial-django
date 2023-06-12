@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Resultados de búsqueda</h1>
+    <p>Consulta: {{ query }}</p>
+    {% if resultados %}
+        <ul>
+            {% for tarea in resultados %}
+                <li><a href="{% url 'tarea_detallada' tarea_id=tarea.id %}">{{ tarea.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron resultados para la búsqueda.</p>
+    {% endif %}
+{% endblock %}

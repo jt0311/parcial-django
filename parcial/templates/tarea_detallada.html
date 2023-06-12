@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<main class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <h1 class="text-center">Opciones de tarea</h1>
+
+            {{ error }}
+            
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="d-flex justify-content-between">
+                    <button class="btn btn-warning">Editar</button>
+                    <div>
+                        <button type="submit" formaction="{% url 'completar_tarea' tarea.id %}" class="btn btn-success">Terminada</button>
+                        <button type="submit" formaction="{% url 'eliminar_tarea' tarea.id %}" class="btn btn-danger ml-2">Eliminar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+{% endblock %}
