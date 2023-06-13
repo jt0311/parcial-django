@@ -83,14 +83,14 @@ WSGI_APPLICATION = "projectFinal.wsgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(
-        default='postgresql://postgres:postgres@localhost/postgres',
+        default='postgresql://postgres:1234@localhost/parcial',
         conn_max_age=600
     )
 }
 
 
 # Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
+# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validatorsñ
 
 AUTH_PASSWORD_VALIDATORS = [
     {

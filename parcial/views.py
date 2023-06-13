@@ -46,8 +46,8 @@ def tareas(request):
 
 @login_required
 def tareas_completas(request):
-    tareas = Tareas.objects.filter(user=request.user, datecomplete__isnull=False).order_by
-    ('-datecompleted')
+    tareas = Tareas.objects.filter(user=request.user, datecomplete__isnull=False).order_by('-datecomplete')
+
     return render(request, 'tareas.html', {'tareas': tareas})
 
 
@@ -115,7 +115,7 @@ def buscar(request):
 
     resultados = []
     if query:
-        resultados = Tareas.objects.filter(title__icontains=query)
+        resultados = Tareas.objects.filter(title__icontains=query, user=request.user)
 
     context = {
         'query': query,
@@ -123,6 +123,7 @@ def buscar(request):
     }
 
     return render(request, 'buscar.html', context)
+
 
 
 

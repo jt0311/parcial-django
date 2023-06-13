@@ -10,6 +10,7 @@
             <ul class="list-group">
                 {% for tarea in tareas %}
                 <a class="list-group-item" href="{% url 'tarea_detallada' tarea.id %}">
+
                     <header class="d-flex justify-content-between">
                         {% if tarea.important %}
                         <h1 class="fw bold text-success">{{tarea.title}}</h1>
